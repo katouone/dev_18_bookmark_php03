@@ -46,10 +46,11 @@ $json_array = json_encode($view2);
   <!-- <link rel="stylesheet" href="css/range.css">
   <link href="css/bootstrap.min.css" rel="stylesheet"> -->
   <style>
-    div { 
-      padding: 10px;
-      font-size: 16px;
-    }
+
+
+    html, body {
+            height: 100%;
+        }
 
     table{
       text-align: center;
@@ -71,15 +72,19 @@ $json_array = json_encode($view2);
       max-width: 500px;
     }
 
+    .result_area { 
+      padding: 10px;
+      font-size: 16px;
+    }
+
     #myMap {
-      height: 100%;
+      height: 90%;
+
     }
     #maparea {
-      height: 100%;
+      height: 50%;
     }
-    .result_area {
-      height: 100px;
-    }
+
 
   </style>
 
@@ -100,6 +105,9 @@ $json_array = json_encode($view2);
 
 <!-- Main[Start] -->
 
+<div id="maparea">
+    <div id="myMap"></div>
+</div>
 
 <div class="result_area">
   <table>
@@ -164,9 +172,7 @@ $json_array = json_encode($view2);
   <div><a href="user_select.php">ユーザー一覧へ</a></div>
 </div>
 
-<div id="maparea">
-    <div id="myMap"></div>
-</div>
+
 
 <!-- Main[End] -->
 
@@ -198,7 +204,7 @@ $json_array = json_encode($view2);
             let marker = new google.maps.Marker({
                 position: place,
                 map,
-                label: String(js_ary[i]['id']),
+                label: js_ary[i]['id'],
             });
         }
     }
